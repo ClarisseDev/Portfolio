@@ -1,0 +1,408 @@
+:root{
+  --nav-height:60px;
+  --max-width:1200px;
+}
+
+/* Réinitialisation et styles de base */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding-top: var(--nav-height);
+    background-color: #f4f4f4;
+}
+
+/* Conteneur principal */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  background-color: white;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--nav-height);
+  background-color: #113853;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+
+.navbar ul {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  list-style-type: none;
+}
+
+.navbar li {
+  flex: 0 0 auto;
+  text-align: center;
+}
+
+.navbar li a {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  color: white;
+  padding: 0.5rem 0.75rem;
+  text-decoration: none;
+}
+
+.navbar ul.active {
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar ul li a:hover {
+    background-color: #aaa;
+    color: rgb(0, 0, 0);
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+/* Mode burger à partir de 830px */
+.burger {
+    display: none; /* visible uniquement sur petit écran */
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: 20px;
+    align-items: center;
+}
+
+@media (max-width: 830px) {
+    .burger {
+        display: flex;
+    }
+
+    .navbar ul {
+        display: none;
+        flex-direction: column;
+        background-color: #113853;
+        position: absolute;
+        top: var(--nav-height);
+        left: 0;
+        width: 100%;
+        z-index: 999; /* pour être au-dessus du contenu */
+    }
+
+    .navbar ul.active {
+        display: flex;
+    }
+
+    .navbar ul.active li a:hover {
+        background-color: #aaa;
+        color: rgb(0,0,0);
+    }
+}
+
+/* En-tête */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+}
+
+@media (max-width: 550px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.photo {
+    display: flex;
+}
+
+.photo img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.photo div {
+    padding-left: 25px;
+    align-content: center;
+}
+
+.title h1, .title h2 {
+    margin: 0;
+}
+
+/* Boutons de contact */
+.contact-button {
+    margin: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+}
+
+.mail {
+    background-color: #3b99a9;
+}
+
+.cv {
+    background-color: #e99852;
+}
+
+.contact-button:hover {
+    background-color: #aaa;
+}
+
+/* Sections générales */
+section {
+    margin-bottom: 20px;
+}
+
+section h3 {
+    background-color: #113853;
+    padding: 10px;
+    margin: 0;
+    color: white;
+}
+
+/* Compétences */
+.competences ul {
+    columns: 2;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.competences li {
+    padding: 10px;
+    background-color: #f4f4f4;
+    margin: 5px;
+}
+
+/* Expériences et Formations */
+.experience, .formation {
+    display: flex;
+    margin: 10px;
+}
+
+.experience .date, .formation .date {
+    width: 150px;
+    background-color: #3facf7;
+    padding: 10px;
+    text-align: center;
+}
+
+.experience .description, .formation .description {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+/* Réalisation */
+.realisation-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Espace les éléments uniformément */
+}
+
+.realisation {
+    flex: 0 0 calc(48% - 10px); /* Pour 2 éléments par ligne */
+    /* flex: 0 0 calc(30% - 10px); */ /* Pour 3 éléments par ligne */
+    margin-top: 10px;
+    text-align: center;
+    border: solid 2px black;
+    overflow: hidden;
+}
+
+@media (max-width: 830px) {
+    .realisation {
+        flex: 0 0 100%; /* une seule par ligne */
+    }
+}
+
+.realisation img {
+    object-fit: cover;
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.realisation h4 {
+    margin: 5px;
+}
+
+.realisation span {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* Soft Skills */
+.soft-skills ul {
+    columns: 2; /* ou column-count: 2; */
+    column-gap: 40px; /* espace entre les colonnes */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.soft-skills li {
+    padding: 10px;
+    background-color: #f4f4f4;
+    margin: 5px;
+    box-sizing: border-box;
+}
+
+/* Langues */
+.langues li {
+    width: 50%;
+    padding: 10px;
+    background-color: #f4f4f4;
+    margin: 5px;
+    box-sizing: border-box;
+}
+
+.langues ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+/* Centres d'intérêt */
+.interets-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.interet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 1 120px;
+  max-width: 160px;
+}
+
+/* Cercle responsive */
+.svg-wrapper {
+  width: clamp(60px, 10vw, 120px);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 15px #555;
+}
+
+/* SVG toujours visible et proportionné */
+.svg-wrapper svg {
+  width: 85%;
+  height: 85%;
+  object-fit: contain;
+}
+
+/* Légende */
+.interet figcaption {
+  margin-top: 0.6rem;
+  text-align: center;
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+}
+
+/* --- Cercle contenant le SVG --- */
+.svg-wrapper {
+    width: 90px;              /* un peu plus grand que le SVG pour éviter la coupe */
+    height: 90px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: white;        /* fond clair pour bien voir le motif */
+    box-shadow: 0px 0px 15px #555;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- SVG parfaitement centré et réduit --- */
+.svg-wrapper svg {
+    width: 70px;              /* taille réduite pour éviter tout rognage */
+    height: 70px;
+    flex-shrink: 0;
+}
+
+/* --- Légende --- */
+.interet figcaption {
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Bouton pour remonter en haut */
+#back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    background-color: #333;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+}
+
+#back-to-top.display {
+    display: flex;
+}
+
+#back-to-top:hover {
+    background-color: #555;
+}
+
+#back-to-top img {
+    width: 24px;
+    height: 24px;
+    filter: invert(1);
+}
+
+/* Pied de page */
+footer {
+    border-top: 2px solid #555;
+    background-color: #555;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+footer p {
+    width: 90%;
+    margin: 0 auto;
+    padding: 5px;
+    color: #ffffff;
+    text-align: center;
+}
