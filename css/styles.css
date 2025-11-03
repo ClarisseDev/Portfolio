@@ -82,7 +82,7 @@ header {
 
 /* Mode burger à partir de 830px */
 .burger {
-    display: none; /* visible uniquement sur petit écran */
+    display: none;
     background: none;
     border: none;
     cursor: pointer;
@@ -104,16 +104,7 @@ header {
         top: var(--nav-height);
         left: 0;
         width: 100%;
-        z-index: 999; /* pour être au-dessus du contenu */
-    }
-
-    .navbar ul.active {
-        display: flex;
-    }
-
-    .navbar ul.active li a:hover {
-        background-color: #aaa;
-        color: rgb(0,0,0);
+        z-index: 999;
     }
 }
 
